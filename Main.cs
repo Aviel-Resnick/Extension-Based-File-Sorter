@@ -44,7 +44,12 @@ namespace File_Sorter
 
                     if (System.IO.Directory.Exists(new_folder_dir))
                     {
-                        System.IO.File.Move(file, new_file);
+                        if (file.Exists(new_file))
+                        {
+                            string renamed_file = new_file;
+                            System.IO.File.Move(file, new_file);
+                        }
+                        
                     }
 
                     if (!System.IO.Directory.Exists(new_folder_dir))
