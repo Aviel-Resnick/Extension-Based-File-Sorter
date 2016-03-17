@@ -46,10 +46,13 @@ namespace File_Sorter
                     {
                         if (file.Exists(new_file))
                         {
-                            string renamed_file = new_file;
+                            string renamed_file = new_file_dir + x;
+                            System.IO.File.Move(file, renamed_file);
+                        }
+                        else
+                        {
                             System.IO.File.Move(file, new_file);
                         }
-                        
                     }
 
                     if (!System.IO.Directory.Exists(new_folder_dir))
@@ -58,7 +61,15 @@ namespace File_Sorter
                         var di = new DirectoryInfo(new_folder_dir);
                         FileAttributes f = di.Attributes;
 
-                        System.IO.File.Move(file, new_file);
+                        if (file.Exists(new_file))
+                        {
+                            string renamed_file = new_file_dir + x;
+                            System.IO.File.Move(file, renamed_file);
+                        }
+                        else
+                        {
+                            System.IO.File.Move(file, new_file);
+                        }
                     }
                 }
 
@@ -102,7 +113,15 @@ namespace File_Sorter
 
                     if (System.IO.Directory.Exists(new_folder_dir))
                     {
-                        System.IO.File.Move(file, new_file);
+                        if (file.Exists(new_file))
+                        {
+                            string renamed_file = new_file_dir + x;
+                            System.IO.File.Move(file, renamed_file);
+                        }
+                        else
+                        {
+                            System.IO.File.Move(file, new_file);
+                        }
                     }
 
                     if (!System.IO.Directory.Exists(new_folder_dir))
@@ -111,7 +130,15 @@ namespace File_Sorter
                         var di = new DirectoryInfo(new_folder_dir);
                         FileAttributes f = di.Attributes;
 
-                        System.IO.File.Move(file, new_file);
+                        if (file.Exists(new_file))
+                        {
+                            string renamed_file = new_file_dir + x;
+                            System.IO.File.Move(file, renamed_file);
+                        }
+                        else
+                        {
+                            System.IO.File.Move(file, new_file);
+                        }
                     }
                 }
 
